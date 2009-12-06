@@ -20,10 +20,6 @@ end
 local function Greg_Parse_Line( line )
   local line_pattern = '^%s*(%u%a+) | Points: ([^|]+) | Alts: ?([%a, ]*)$'
   local name, points, alts = string.match( line, line_pattern )
-  
-  if name == nil then
-    print( '!' .. line .. '!' )
-  end
 
   Greg_Standings[ name ] = {}
     
