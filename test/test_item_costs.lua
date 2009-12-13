@@ -12,7 +12,7 @@ function test_head_cost()
   _G[ 'GetItemInfo' ] = function( item )
     return item, nil, nil, nil, nil, 'Armor', 'Cloth', nil, 'INVTYPE_HEAD'
   end
-  
+
   assert_equal( 50.00, Greg_GetItemCost( 'Item' ) )
 end
 
@@ -20,7 +20,7 @@ function test_neck_cost()
   _G[ 'GetItemInfo' ] = function( item )
     return item, nil, nil, nil, nil, 'Armor', 'Miscellaneous', nil, 'INVTYPE_NECK'
   end
-  
+
   assert_equal( 30.00, Greg_GetItemCost( 'Item' ) )
 end
 
@@ -28,7 +28,7 @@ function test_shoulder_cost()
   _G[ 'GetItemInfo' ] = function( item )
     return item, nil, nil, nil, nil, 'Armor', 'Cloth', nil, 'INVTYPE_SHOULDER'
   end
-  
+
   assert_equal( 35.00, Greg_GetItemCost( 'Item' ) )
 end
 
@@ -36,7 +36,7 @@ function test_chest_cost()
   _G[ 'GetItemInfo' ] = function( item )
     return item, nil, nil, nil, nil, 'Armor', 'Cloth', nil, 'INVTYPE_CHEST'
   end
-  
+
   assert_equal( 50.00, Greg_GetItemCost( 'Item' ) )
 end
 
@@ -44,7 +44,7 @@ function test_robe_cost()
   _G[ 'GetItemInfo' ] = function( item )
     return item, nil, nil, nil, nil, 'Armor', 'Cloth', nil, 'INVTYPE_ROBE'
   end
-  
+
   assert_equal( 50.00, Greg_GetItemCost( 'Item' ) )
 end
 
@@ -218,13 +218,13 @@ function test_tier_t7_foos_cost()
   assert_equal( 35.00, Greg_GetItemCost( 'Gauntlets of the Lost Conqueror' ) )
   assert_equal( 50.00, Greg_GetItemCost( 'Legplates of the Lost Conqueror' ) )
   assert_equal( 35.00, Greg_GetItemCost( 'Mantle of the Lost Conqueror' ) )
-  
+
   assert_equal( 50.00, Greg_GetItemCost( 'Breastplate of the Lost Protector' ) )
   assert_equal( 50.00, Greg_GetItemCost( 'Crown of the Lost Protector' ) )
   assert_equal( 35.00, Greg_GetItemCost( 'Gauntlets of the Lost Protector' ) )
   assert_equal( 50.00, Greg_GetItemCost( 'Legplates of the Lost Protector' ) )
   assert_equal( 35.00, Greg_GetItemCost( 'Mantle of the Lost Protector' ) )
-  
+
   assert_equal( 50.00, Greg_GetItemCost( 'Breastplate of the Lost Vanquisher' ) )
   assert_equal( 50.00, Greg_GetItemCost( 'Crown of the Lost Vanquisher' ) )
   assert_equal( 35.00, Greg_GetItemCost( 'Gauntlets of the Lost Vanquisher' ) )
@@ -242,13 +242,13 @@ function test_tier_t8_foos_cost()
   assert_equal( 35.00, Greg_GetItemCost( 'Gauntlets of the Wayward Conqueror' ) )
   assert_equal( 50.00, Greg_GetItemCost( 'Legplates of the Wayward Conqueror' ) )
   assert_equal( 35.00, Greg_GetItemCost( 'Mantle of the Wayward Conqueror' ) )
-  
+
   assert_equal( 50.00, Greg_GetItemCost( 'Breastplate of the Wayward Protector' ) )
   assert_equal( 50.00, Greg_GetItemCost( 'Crown of the Wayward Protector' ) )
   assert_equal( 35.00, Greg_GetItemCost( 'Gauntlets of the Wayward Protector' ) )
   assert_equal( 50.00, Greg_GetItemCost( 'Legplates of the Wayward Protector' ) )
   assert_equal( 35.00, Greg_GetItemCost( 'Mantle of the Wayward Protector' ) )
-  
+
   assert_equal( 50.00, Greg_GetItemCost( 'Breastplate of the Wayward Vanquisher' ) )
   assert_equal( 50.00, Greg_GetItemCost( 'Crown of the Wayward Vanquisher' ) )
   assert_equal( 35.00, Greg_GetItemCost( 'Gauntlets of the Wayward Vanquisher' ) )
@@ -294,4 +294,12 @@ function test_head_of_onyxia_cost()
   end
 
   assert_equal( 0.00, Greg_GetItemCost( 'Head of Onyxia' ) )
+end
+
+function test_unknown_item_cost()
+  _G[ 'GetItemInfo' ] = function( item )
+    return item, nil, nil, nil, nil, 'Miscellaneous', 'Other', nil, ''
+  end
+
+  assert_nil( Greg_GetItemCost( 'Item' ) )
 end
