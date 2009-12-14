@@ -71,7 +71,7 @@ local Greg_CustomRulesForItems = {
   [ 'Heroic Key to the Focusing Iris' ]    = 'Neck',
   -- Sartharion
   [ 'Dragon Hide Bag' ]                    = 'Other',
-  
+
   -- T8
   -- Foos
   [ 'Breastplate of the Wayward Conqueror' ]  = 'Chest',
@@ -100,7 +100,7 @@ local Greg_CustomRulesForItems = {
 
 function Greg_GetItemCost( item )
   local name, _, _, _, _, itemType, itemSubType, _, equipLoc = GetItemInfo( item )
-    
+
   local rule
   if Greg_CustomRulesForItems[ name ] then
     rule = Greg_CustomRulesForItems[ name ]
@@ -111,6 +111,6 @@ function Greg_GetItemCost( item )
   else
     rule = Greg_RuleByLocation[ equipLoc ]
   end
-  
+
   return Greg_CostByRule[ rule ]
 end
