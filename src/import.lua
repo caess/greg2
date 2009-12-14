@@ -32,7 +32,7 @@ function Greg_Import( lines )
   Greg_Standings = {}
   
   for line in string.gmatch( lines, "[^\n]+") do
-    if line ~= '' then
+    if strtrim( line ) ~= '' then
       Greg_ParseLine( line )
     end
   end

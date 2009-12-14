@@ -115,3 +115,33 @@ function test_import_with_multiple_lines()
   assert_equal(   0.00, Greg_Standings[ 'Phaedra' ][ 't10' ], "Phaedra's T10 points don't match." )
   assert_equal( 'Phaedra', Greg_Alts[ 'Pari' ], "Pari isn't marked as Phaedra's alt." )
 end
+
+function test_import_with_multiple_lines_and_whitespace()
+  local lines = [[
+
+  Tahapenes | Points: t8: 496.16, t10: 0.00, t9: 411.20 | Alts: Angelique, Lissanna, Orisella
+  
+  Phaedra | Points: t8: 345.66, t10: 0.00, t9: 239.20 | Alts: Pari
+  ]]
+  
+  Greg_Import( lines )
+  
+  assert_table( Greg_Standings, 'Greg_Standings is not a table.' )
+  assert_table( Greg_Alts, 'Greg_Alts is not a table.' )
+  
+  -- Tahapenes
+  assert_table( Greg_Standings[ 'Tahapenes' ], "Greg_Standings[ 'Tahapenes' ] is not a table." )
+  assert_equal( 496.16, Greg_Standings[ 'Tahapenes' ][ 't8' ], "Tahapenes' T8 points don't match." )
+  assert_equal( 411.20, Greg_Standings[ 'Tahapenes' ][ 't9' ], "Tahapenes' T9 points don't match." )
+  assert_equal(   0.00, Greg_Standings[ 'Tahapenes' ][ 't10' ], "Tahapenes' T10 points don't match." )
+  assert_equal( 'Tahapenes', Greg_Alts[ 'Angelique' ], "Angelique is not marked as Tahapenes' alt." )
+  assert_equal( 'Tahapenes', Greg_Alts[ 'Lissanna' ], "Angelique is not marked as Lissanna' alt." )
+  assert_equal( 'Tahapenes', Greg_Alts[ 'Orisella' ], "Angelique is not marked as Orisella' alt." )
+  
+  -- Phaedra
+  assert_table( Greg_Standings[ 'Phaedra' ], "Greg_Standings[ 'Phaedra' ] is not a table." )
+  assert_equal( 345.66, Greg_Standings[ 'Phaedra' ][ 't8' ], "Phaedra's T8 points don't match." )
+  assert_equal( 239.20, Greg_Standings[ 'Phaedra' ][ 't9' ], "Phaedra's T9 points don't match." )
+  assert_equal(   0.00, Greg_Standings[ 'Phaedra' ][ 't10' ], "Phaedra's T10 points don't match." )
+  assert_equal( 'Phaedra', Greg_Alts[ 'Pari' ], "Pari isn't marked as Phaedra's alt." )
+end
