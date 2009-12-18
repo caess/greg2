@@ -55,7 +55,7 @@ function test_loot_handler_with_items_over_loot_threshold()
   Greg_LOOT_OPENED_Handler()
 
   assert_true( Greg_ClaimingActive )
-  assert_equal( 2, #Greg_Items_To_Claim )
+  assert_equal( 2, #Greg_ItemsToClaim )
 end
 
 function test_loot_handler_with_only_coins()
@@ -119,12 +119,12 @@ function test_loot_handler_when_claiming_already_active()
   end
 
   _G[ 'Greg_ClaimingActive' ] = true
-  _G[ 'Greg_Items_To_Claim' ] = { 'Foo', 'Bar' }
+  _G[ 'Greg_ItemsToClaim' ] = { 'Foo', 'Bar' }
 
   Greg_LOOT_OPENED_Handler()
 
   assert_true( Greg_ClaimingActive )
-  assert_equal( 2, #Greg_Items_To_Claim )
+  assert_equal( 2, #Greg_ItemsToClaim )
 end
 
 function test_announcement_when_claiming_starts()
