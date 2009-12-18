@@ -19,8 +19,8 @@ Testing
 -------
 Where possible, I have developed this addon using test-driven development
 (TDD).  You can find the unit tests in the test/ directory.  To run the
-unit tests, you will need lunit (http://www.mroth.net/lunit/) and the
-lua-wow (http://luaforge.net/projects/lua-wow/) version of Lua.  From a
+unit tests, you will need lunit (http://www.mroth.net/lunit/ ) and the
+lua-wow (http://luaforge.net/projects/lua-wow/ ) version of Lua.  From a
 command line, run something like: lunit -i ~/bin/lua-wow test/*.lua
 
 (This expects that lunit's binary is on your path, that you have installed
